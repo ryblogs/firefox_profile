@@ -1,0 +1,53 @@
+#sidebar-header
+{
+    display: none;
+}
+
+/* remove maximum/minimum width restriction of sidebar */
+#sidebar-box {
+    max-width: none !important;
+    min-width: 10px !important;
+}
+
+.sidebar-splitter {
+    border-right: 1px solid rgb(67, 67, 67) !important;
+}
+
+#TabsToolbar {
+    visibility: collapse;
+    overflow: visible;
+}
+
+#TabsToolbar > * {
+    visibility: collapse;
+}
+
+#TabsToolbar .titlebar-buttonbox-container {
+    visibility: visible !important;
+    position: absolute;
+    margin-top: 20px;
+    margin-left: 2px;
+}
+
+/* toolbarspring {
+    position: relative !important;
+    min-width: 100px !important; 
+    max-width: 128px !important;
+}  */
+
+#nav-bar {
+    padding-left: 100px;
+    padding-top: 10px !important;
+    padding-bottom: 3px !important;
+    /* background-color: transparent !important; */
+}
+
+#urlbar {
+    margin-top: -7px !important;
+}
+
+/* Differentiate private windows */
+#main-window[privatebrowsingmode] #urlbar-background
+{
+  background-color: #ff0000ed !important;
+}
