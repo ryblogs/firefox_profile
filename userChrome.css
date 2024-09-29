@@ -53,14 +53,15 @@
     background-color: #ff0000ed !important;
 }
 
-/* Rounded corners */
-#tabbrowser-tabbox {
+/* Rounded corners ------------------------------------------------ */
+/* Apply styles only when NOT in full-screen mode */
+#main-window:not([sizemode="fullscreen"]) #tabbrowser-tabbox {
     position: relative;
     overflow: hidden;
 }
 
-/* inner rounded corners */
-#tabbrowser-tabbox::after {
+/* Inner rounded corners */
+#main-window:not([sizemode="fullscreen"]) #tabbrowser-tabbox::after {
     content: "";
     position: absolute;
     top: -7px;
@@ -75,8 +76,8 @@
     pointer-events: none;
 }
 
-/* Inner edge red border */
-#tabbrowser-tabbox::before {
+/* Inner edge 1px border */
+#main-window:not([sizemode="fullscreen"]) #tabbrowser-tabbox::before {
     content: "";
     position: absolute;
     top: 3px;    /* inset slightly within the black border */
@@ -91,31 +92,21 @@
     pointer-events: none;
 }
 
-/* outer border */
-#tabbrowser-tabbox::outer {
+/* Outer border */
+#main-window:not([sizemode="fullscreen"]) #tabbrowser-tabbox::outer {
     content: "";
     inset: -2px;
     position: absolute;
     border: 4px solid var(--toolbar-bgcolor);
-    z-index:1;
-    pointer-events:none;
-}
-
-/* Move the scrollbar a few pixels to the left */
-#tabbrowser-tabbox scrollbar[orient="vertical"] {
-    margin-left: -25px; /* Adjust the number of pixels for vertical scrollbars */
-}
-
-/* Adjust vertical scrollbar position */
-#tabbrowser-tabbox scrollbar {
-    position: relative;
-    left: -25px; /* Shift the scrollbar left */
+    z-index: 1;
+    pointer-events: none;
 }
 
 /* Reduce content area to prevent scrollbar overlap with rounded borders */
-#tabbrowser-tabbox {
+#main-window:not([sizemode="fullscreen"]) #tabbrowser-tabbox {
     padding-top: 5px;
     padding-right: 5px; /* Adjust padding to avoid overlap */
     padding-bottom: 5px;
     padding-left: 5px;
 }
+/* End rounded corners -------------------------------------------- */
