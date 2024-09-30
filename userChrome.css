@@ -71,7 +71,7 @@
     
     /* outer border style */
     border: 10px solid black;
-    border-radius: 18px;
+    border-radius: 22px;
     z-index: 1;
     pointer-events: none;
 }
@@ -87,7 +87,7 @@
 
     /* Red border on inside edge */
     border: 1px solid rgb(67, 67, 67);
-    border-radius: 8px; /* smaller than black border-radius */
+    border-radius: 12px; /* smaller than black border-radius */
     z-index: 2; /* Ensure it's above the black border */
     pointer-events: none;
 }
@@ -104,7 +104,7 @@
 
 /* Reduce content area to prevent scrollbar overlap with rounded borders */
 #main-window:not([sizemode="fullscreen"]) #tabbrowser-tabbox {
-    padding-top: 5px;
+    padding-top: 4px;
     padding-right: 5px; /* Adjust padding to avoid overlap */
     padding-bottom: 5px;
     padding-left: 0px;
