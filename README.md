@@ -12,4 +12,22 @@
 #root.root {--general-border-radius: 10px;}
 #root.root {--tabs-activated-bg: #7f7f7fff;}
 #root.root {--tabs-activated-fg: #000000ff;}
+
+/* Pinned Tabs Styling */
+#root .TabsPanel .PinnedTabsBar {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 10;
+}
+
+.PinnedTabsBar .tab-wrapper {
+  flex-grow: 1;
+  min-width: 25px;
+  --tabs-pinned-width: auto;
+}
+
+#root.root {
+  --tabs-pinned-height: 36px;
+}
 ```
