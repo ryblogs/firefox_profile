@@ -1,112 +1,18 @@
-#sidebar-header
+@-moz-document url("chrome://browser/content/browser.xhtml")
 {
-    display: none;
+    /* Hide Firefox's own vertical-tabs / sidebar frame entirely */
+    #sidebar-main,
+    #sidebar-launcher-splitter {
+        display: none !important;
+    }
+
+    /* Make sure the remaining sidebar (Sidebery) hugs the edge cleanly */
+    #sidebar-box {
+        max-width: none !important;
+        min-width: 10px !important;
+    }
 }
 
-/* remove maximum/minimum width restriction of sidebar */
-#sidebar-box {
-    max-width: none !important;
-    min-width: 10px !important;
+#sidebar-panel-header {
+    display: none !important;
 }
-
-.sidebar-splitter {
-    /* border-right: 1px solid rgb(67, 67, 67) !important; */
-    border-right: 1px solid rgb(0, 0, 0) !important;
-}
-
-#TabsToolbar {
-    visibility: collapse;
-    overflow: visible;
-}
-
-#TabsToolbar > * {
-    visibility: collapse;
-}
-
-#TabsToolbar .titlebar-buttonbox-container {
-    visibility: visible !important;
-    position: absolute;
-    margin-top: 16px;
-    margin-left: 10px;
-}
-
-/* toolbarspring {
-    position: relative !important;
-    min-width: 100px !important; 
-    max-width: 128px !important;
-}  */
-
-#nav-bar {
-    padding-left: 100px !important;
-    padding-top: 5px !important;
-    padding-bottom: 3px !important;
-    /* background-color: transparent !important; */
-}
-
-#urlbar {
-    margin-top: 0px !important;
-}
-
-/* Differentiate private windows */
-#main-window[privatebrowsingmode] #urlbar-background
-{
-    background-color: #ff0000ed !important;
-}
-
-/* Rounded corners ------------------------------------------------ */
-/* Apply styles only when NOT in full-screen mode */
-#main-window:not([sizemode="fullscreen"]) #tabbrowser-tabbox {
-    position: relative;
-    overflow: hidden;
-}
-
-/* Inner rounded corners */
-#main-window:not([sizemode="fullscreen"]) #tabbrowser-tabbox::after {
-    content: "";
-    position: absolute;
-    top: -7px;
-    left: -10px;
-    right: -5px;
-    bottom: -5px;
-    
-    /* outer border style */
-    border: 10px solid black;
-    border-radius: 22px;
-    z-index: 1;
-    pointer-events: none;
-}
-
-/* Inner edge 1px border */
-#main-window:not([sizemode="fullscreen"]) #tabbrowser-tabbox::before {
-    content: "";
-    position: absolute;
-    top: 3px;    /* inset slightly within the black border */
-    left: 0px;
-    right: 5px;
-    bottom: 5px;
-
-    /* Red border on inside edge */
-    border: 1px solid rgb(67, 67, 67);
-    border-radius: 12px; /* smaller than black border-radius */
-    z-index: 2; /* Ensure it's above the black border */
-    pointer-events: none;
-}
-
-/* Outer border */
-#main-window:not([sizemode="fullscreen"]) #tabbrowser-tabbox::outer {
-    content: "";
-    inset: -2px;
-    position: absolute;
-    border: 4px solid var(--toolbar-bgcolor);
-    z-index: 1;
-    pointer-events: none;
-}
-
-/* Reduce content area to prevent scrollbar overlap with rounded borders */
-#main-window:not([sizemode="fullscreen"]) #tabbrowser-tabbox {
-    padding-top: 4px;
-    padding-right: 5px; /* Adjust padding to avoid overlap */
-    padding-bottom: 5px;
-    padding-left: 0px;
-}
-/* End rounded corners -------------------------------------------- */

@@ -3,6 +3,7 @@
 ## Sidebery Styles Editor
 
 ```css
+#root.root {--tabs-inner-gap: 5px;}
 #root.root {--frame-el-overlay-hover-bg: #092e54ff;}
 #root.root {--general-margin: 4px;}
 #root.root {--frame-bg: #000000ff;}
