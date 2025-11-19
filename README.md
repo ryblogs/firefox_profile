@@ -30,4 +30,9 @@
 #root.root {
   --tabs-pinned-height: 36px;
 }
+
+/* Non-selected pinned tabs background */
+.Tab[data-pin="true"] .body {
+  background: #171717;  /* Change this color to whatever you want */
+}
 ```
