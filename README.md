@@ -1,6 +1,12 @@
 # firefox_profile
 
+## userChrome.css
+
+Copy `userChrome.css` to your active Firefox profile directory, in a folder named `chrome`
+
 ## Sidebery Styles Editor
+
+Paste this into Sidebery `Settings > Styles editor`
 
 ```css
 #root.root {--tabs-inner-gap: 5px;}
