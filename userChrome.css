@@ -13,6 +13,19 @@
     }
 }
 
+/* Hide sidebar panel header */
 #sidebar-panel-header {
     display: none !important;
+}
+
+/* Reduce gap between sidebar and content */
+#sidebar-splitter {
+    width: 4px !important;
+    min-width: 4px !important;
+    max-width: 4px !important;
+    border: none !important;
+    background-color: transparent !important;
+}
+#sidebar-splitter:hover {
+    background-color: var(--focus-outline-color, #0061e0) !important;
 }
