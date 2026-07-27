@@ -1,31 +1,61 @@
-@-moz-document url("chrome://browser/content/browser.xhtml")
-{
-    /* Hide Firefox's own vertical-tabs / sidebar frame entirely */
-    #sidebar-main,
+@-moz-document url("chrome://browser/content/browser.xhtml") {
+    /*
+     * In Firefox 153, the native sidebar launcher and panels are separate.
+     * Sidebery is a panel in #sidebar-box. Native vertical tabs and the
+     * launcher are in #sidebar-container, whose child is now <sidebar-main>
+     * rather than an element with id="sidebar-main".
+     */
+    #sidebar-container,
     #sidebar-launcher-splitter {
         display: none !important;
     }
 
-    /* Make sure the remaining sidebar (Sidebery) hugs the edge cleanly */
+    /* Keep Firefox's horizontal tab strip hidden, even while Sidebery is closed. */
+    #TabsToolbar > * {
+        display: none !important;
+    }
+
+    #nav-bar {
+        border-color: transparent !important;
+    }
+
+    /* Let the Sidebery panel use its saved width and sit flush to the edge. */
     #sidebar-box {
         max-width: none !important;
-        min-width: 10px !important;
+        min-width: 80px !important;
+        padding: 0 !important;
+    }
+
+    #sidebar-box #sidebar {
+        border: none !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        outline: none !important;
+    }
+
+    /* Hide Firefox's legacy panel header. */
+    #sidebar-header {
+        display: none !important;
+    }
+
+    /* Keep only a narrow, invisible resize target beside Sidebery. */
+    #sidebar-splitter {
+        --sidebery-splitter-width: 4px;
+        width: var(--sidebery-splitter-width) !important;
+        min-width: var(--sidebery-splitter-width) !important;
+        max-width: var(--sidebery-splitter-width) !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        border: none !important;
+        background-color: transparent !important;
+    }
+
+    #sidebar-splitter:hover {
+        background-color: var(--focus-outline-color, #0061e0) !important;
     }
 }
 
-/* Hide sidebar panel header */
+/* Hide the revamp panel header in Firefox-owned sidebar documents. */
 #sidebar-panel-header {
     display: none !important;
-}
-
-/* Reduce gap between sidebar and content */
-#sidebar-splitter {
-    width: 4px !important;
-    min-width: 4px !important;
-    max-width: 4px !important;
-    border: none !important;
-    background-color: transparent !important;
-}
-#sidebar-splitter:hover {
-    background-color: var(--focus-outline-color, #0061e0) !important;
 }
